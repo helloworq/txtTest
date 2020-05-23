@@ -20,4 +20,4 @@ git merge命令用于合并指定分支到当前分支。
 git branch -d 删除指定分支
 
 用git log --graph命令可以看到分支合并图。
-git log --graph --pretty=oneline --abbrev-commit  简化查看
+git log --graph --pretty=oneline --abbrev-commit  简化查看测试
