@@ -28,3 +28,20 @@ git log --graph --pretty=oneline --abbrev-commit  简化查看
 git merge --no-ff -m "merge with no-ff" dev
 这个命令可以看到 -m "merge with no-ff" 这句话，和commit提交时一样需要备注信息。普通merge是将master指针直接
 指向dev分支最新的提交。但这个命令会生成一个新提交，这样可以保存到dev分支的信息，
+
+
+Git提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：
+
+工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：
+
+一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+
+另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+
+
+在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。
+
+
+
+远程操作：
