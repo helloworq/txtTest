@@ -20,4 +20,11 @@ git merge命令用于合并指定分支到当前分支。
 git branch -d 删除指定分支
 
 用git log --graph命令可以看到分支合并图。
-git log --graph --pretty=oneline --abbrev-commit  简化查看测试
+git log --graph --pretty=oneline --abbrev-commit  简化查看
+
+
+通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。
+如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。
+git merge --no-ff -m "merge with no-ff" dev
+这个命令可以看到 -m "merge with no-ff" 这句话，和commit提交时一样需要备注信息。普通merge是将master指针直接
+指向dev分支最新的提交。但这个命令会生成一个新提交，这样可以保存到dev分支的信息，
